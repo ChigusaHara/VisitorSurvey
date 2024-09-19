@@ -12,7 +12,7 @@
 		<table>
 			<tr>
 				<td>年齢</td>
-				<td><input type="text" name="age" size="5"></td>
+				<td><input type="text" name="age" size="5">歳</td>
 			</tr>
 			<tr>
 				<td>性別</td>
