@@ -21,6 +21,12 @@
 					選択しない<input type="radio" name="gender" value="未選択"></td>
 			</tr>
 			<tr>
+				<td>来店日</td>
+				<td>
+					<input type="date" name="date" value="2024-01-01">
+				</td>
+			</tr>	
+			<tr>
 				<td>頼んだドリンク</td>
 				<td>
 					<select name="drink">
