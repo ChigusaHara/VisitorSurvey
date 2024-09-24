@@ -20,6 +20,16 @@ public class visitorSurvey implements Serializable{
 	
 	public visitorSurvey(int age, String gender, String drink, int drinkRate, String food, int foodRate, 
 			int shopRate, int serveRate, String opinion, String[] menu) {
+		this.setAge(age);
+		this.setGender(gender);
+		this.setDrink(drink);
+		this.setDringRate(drinkRate);
+		this.setFood(food);
+		this.setFoodRate(foodRate);
+		this.setShopRate(shopRate);
+		this.setServeRate(serveRate);
+		this.setOpinion(opinion);
+		this.setMenu(menu);
 	}
 
 	public int getAge() {
