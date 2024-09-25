@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import work.answerDBConnect;
 import work.visitorSurvey;
@@ -19,7 +20,16 @@ public class surveyServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
+		String action = request.getParameter("action");
+		if (action == null) {
+			//入力画面へリダイレクト
+			response.sendRedirect("suurveyForm");
+		}else if (action.equals("confirmed")) {
+			//完了画面へフォワード
+			RequestDispatcher rdDone = request.getRequestDispatcher("WEB-INF/jsp/doneSurvey.jsp");
+			rdDone.forward(request, response);
+		}
 	}
 
 	
@@ -51,12 +61,13 @@ public class surveyServlet extends HttpServlet {
 		visitorSurvey survey = new visitorSurvey(
 				age, gender, drink, drinkRate, food, foodRate, shopRate, serveRate, opinion, menu);
 		
-		//リクエストスコープに格納
-		request.setAttribute("survey", survey);
+		//セッションスコープに格納
+		HttpSession session = request.getSession();
+		session.setAttribute("survey", survey);
 		
-		//フォワード
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/surveyView.jsp");
-		rd.forward(request, response);
+		//確認画面へフォワード
+		RequestDispatcher rdConfirm = request.getRequestDispatcher("WEB-INF/jsp/confirmSurvey.jsp");
+		rdConfirm.forward(request, response);
 }
 
 
