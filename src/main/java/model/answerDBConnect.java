@@ -1,4 +1,4 @@
-package work;
+package model;
 
 public class answerDBConnect {
 	public void insert(int age, String gender, String drink, int drinkRate, String food, int foodRate, 

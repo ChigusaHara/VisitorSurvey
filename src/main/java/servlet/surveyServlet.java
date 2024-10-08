@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import work.answerDBConnect;
-import work.visitorSurvey;
+import model.answerDBConnect;
+import model.visitorSurvey;
 
 
 @WebServlet("/surveyServlet")
@@ -45,13 +45,73 @@ public class surveyServlet extends HttpServlet {
 		String serveRateStr = request.getParameter("serveRate");
 		String opinion = request.getParameter("opinion");
 		String[] menu = request.getParameterValues("menu");
+		int age = 0;
+		int drinkRate = 0;
+		int foodRate = 0;
+		int shopRate = 0;
+		int serveRate = 0;
 		//int型変換
-		int age = Integer.parseInt(ageStr);
-		int drinkRate = Integer.parseInt(drinkRateStr);
-		int foodRate = Integer.parseInt(foodRateStr);
-		int shopRate = Integer.parseInt(shopRateStr);
-		int serveRate = Integer.parseInt(serveRateStr);
-		
+		if (ageStr.matches("[0-9]*")) {
+			age = Integer.parseInt(ageStr);
+		} else {
+			age = 0;
+		}
+		//int型変換
+		if (drinkRateStr.matches("★★★★★")) {
+			drinkRate = 5;
+		} else if (drinkRateStr.matches("★★★★")) {
+			drinkRate = 4;
+		} else if (drinkRateStr.matches("★★★")) {
+			drinkRate = 3;
+		} else if (drinkRateStr.matches("★★")) {
+			drinkRate = 2;
+		} else if (drinkRateStr.matches("★")) {
+			drinkRate = 1;
+		} else {
+			drinkRate = 0;
+		}
+		//int型変換
+		if (foodRateStr.matches("★★★★★")) {
+			foodRate = 5;
+		} else if (foodRateStr.matches("★★★★")) {
+			foodRate = 4;
+		} else if (foodRateStr.matches("★★★")) {
+			foodRate = 3;
+		} else if (foodRateStr.matches("★★")) {
+			foodRate = 2;
+		} else if (foodRateStr.matches("★")) {
+			foodRate = 1;
+		} else {
+			foodRate = 0;
+		}
+		//int型変換
+		if (shopRateStr.matches("★★★★★")) {
+			shopRate = 5;
+		} else if (shopRateStr.matches("★★★★")) {
+			shopRate = 4;
+		} else if (shopRateStr.matches("★★★")) {
+			shopRate = 3;
+		} else if (shopRateStr.matches("★★")) {
+			shopRate = 2;
+		} else if (shopRateStr.matches("★")) {
+			shopRate = 1;
+		} else {
+			shopRate = 0;
+		}
+		//int型変換
+		if (serveRateStr.matches("★★★★★")) {
+			serveRate = 5;
+		} else if (serveRateStr.matches("★★★★")) {
+			serveRate = 4;
+		} else if (serveRateStr.matches("★★★")) {
+			serveRate = 3;
+		} else if (serveRateStr.matches("★★")) {
+			serveRate = 2;
+		} else if (serveRateStr.matches("★")) {
+			serveRate = 1;
+		} else {
+			serveRate = 0;
+		}
 		
 		answerDBConnect db = new answerDBConnect();
 		db.insert(age, gender, drink, drinkRate, food, foodRate, shopRate, serveRate, opinion);

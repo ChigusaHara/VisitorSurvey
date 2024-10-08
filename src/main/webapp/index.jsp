@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>性別</td>
-				<td>男性<input type="radio" name="gender" value="男性">
+				<td>男性<input type="radio" name="gender" value="男性" selected>
 					女性<input type="radio" name="gender" value="女性">
 					選択しない<input type="radio" name="gender" value="未選択"></td>
 			</tr>
@@ -30,7 +30,7 @@
 				<td>頼んだドリンク</td>
 				<td>
 					<select name="drink">
-					<option hidden value="選択なし">選択してください</option>
+					<option hidden value="">選択してください</option>
 					<option value="ホットコーヒー">ホットコーヒー</option>
 					<option value="アイスコーヒー">アイスコーヒー</option>
 					<option value="カフェラテ">カフェラテ</option>
@@ -58,7 +58,7 @@
 				<td>頼んだフード</td>
 				<td>
 					<select name="food">
-					<option hidden value="選択なし">選択してください</option>
+					<option hidden value="">選択してください</option>
 					<option value="チョコケーキ">チョコケーキ</option>
 					<option value="フルーツタルト">フルーツタルト</option>
 					<option value="チーズケーキ">チーズケーキ</option>
